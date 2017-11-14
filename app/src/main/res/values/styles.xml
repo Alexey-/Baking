@@ -1,0 +1,43 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="toolbarStyle">@style/ToolbarStyle</item>
+        <item name="colorControlNormal">@color/colorTextInverse</item>
+    </style>
+
+    <style name="ToolbarStyle" parent="@style/Widget.AppCompat.Toolbar">
+        <item name="titleTextColor">@color/colorTextInverse</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="HintText">
+        <item name="android:textSize">16dp</item>
+    </style>
+
+    <style name="VeryImportantText">
+        <item name="android:textSize">18dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorTextMain</item>
+    </style>
+
+    <style name="ImportantText">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorTextMain</item>
+    </style>
+
+    <style name="NormalText">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/colorTextMain</item>
+    </style>
+
+    <style name="PlaceholderText">
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">@color/colorGray</item>
+    </style>
+
+</resources>

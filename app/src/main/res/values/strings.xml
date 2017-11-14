@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Baking</string>
+
+    <!-- Recipes list -->
+    <string name="activity_name_recipes_list">Recipes</string>
+
+    <!-- Measurment units -->
+    <string name="measure_unit_cup">cup</string>
+    <string name="measure_unit_table_spoon">table spoon</string>
+    <string name="measure_unit_tea_spoon">tea spoon</string>
+    <string name="measure_unit_kg">kilogram</string>
+    <string name="measure_unit_gram">gram</string>
+    <string name="measure_unit_oz">oz</string>
+    <string name="measure_unit_unit"></string>
+</resources>
