@@ -1,6 +1,6 @@
 package com.example.baking.model.api;
 
-import com.example.baking.model.Recipe;
+import com.example.baking.model.RecipeWithSubobjects;
 
 import java.util.List;
 
@@ -14,6 +14,6 @@ public interface Api {
     }
 
     @GET("/topher/2017/May/59121517_baking/baking.json")
-    Single<List<Recipe>> getRecipes();
+    Single<List<RecipeWithSubobjects>> getRecipes();
 
 }

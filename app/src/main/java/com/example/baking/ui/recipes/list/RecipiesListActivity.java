@@ -6,8 +6,10 @@ import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 
+import com.annimon.stream.Stream;
 import com.example.baking.R;
 import com.example.baking.databinding.RecipesListActivityBinding;
+import com.example.baking.model.RecipeWithSubobjects;
 import com.example.baking.model.api.Api;
 import com.example.baking.ui.BaseActivity;
 import com.example.baking.utils.Log;
@@ -48,7 +50,7 @@ public class RecipiesListActivity extends BaseActivity implements SwipeRefreshLa
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSuccess((recipes) -> {
-                    mAdapter.setRecipes(recipes);
+                    mAdapter.setRecipes(Stream.of(recipes).map(RecipeWithSubobjects::getRecipe).toList());
                 })
                 .doOnError((error) -> {
                     Log.e(Log.DEFAULT_TAG, "Error receiving recipes list", error);

@@ -1,5 +1,6 @@
 package com.example.baking.model;
 
+import android.arch.persistence.room.Ignore;
 import android.content.Context;
 import android.support.annotation.StringRes;
 
@@ -34,6 +35,7 @@ public class Measure {
         }
     }
 
+    @Ignore
     private Unit mUnit;
     private String mRawValue;
 
@@ -54,4 +56,22 @@ public class Measure {
         }
     }
 
+    public String getRawValue() {
+        return mRawValue;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Measure measure = (Measure) o;
+
+        return mRawValue != null ? mRawValue.equals(measure.mRawValue) : measure.mRawValue == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return mRawValue != null ? mRawValue.hashCode() : 0;
+    }
 }

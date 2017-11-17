@@ -3,6 +3,7 @@ package com.example.baking.model.api;
 import android.support.annotation.VisibleForTesting;
 
 import com.example.baking.model.Measure;
+import com.example.baking.model.RecipeWithSubobjects;
 import com.example.baking.utils.Log;
 import com.google.gson.GsonBuilder;
 
@@ -44,6 +45,7 @@ public class ApiFactory {
 
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(Measure.class, new MeasureDeserializer());
+        gsonBuilder.registerTypeAdapter(RecipeWithSubobjects.class, new RecipeWithSubobjectsDeserializer());
 
         return new Retrofit.Builder()
                 .client(client)

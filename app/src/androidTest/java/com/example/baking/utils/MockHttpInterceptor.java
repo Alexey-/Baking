@@ -1,5 +1,6 @@
 package com.example.baking.testutils;
 
+import com.example.baking.utils.FakeData;
 import com.example.baking.utils.InputStreamUtils;
 
 import java.io.IOException;
@@ -44,7 +45,7 @@ public class MockHttpInterceptor implements Interceptor {
 
         for (Map.Entry<String, String> mockFile : mMockFiles.entrySet()) {
             if (mockFile.getKey().equalsIgnoreCase(chain.request().url().encodedPath())) {
-                String response = readJsonFromResources(mockFile.getValue());
+                String response = FakeData.readJsonStringFromAssets(mockFile.getValue());
                 return new Response.Builder()
                         .request(chain.request())
                         .body(ResponseBody.create(MEDIA_JSON, response))
@@ -58,12 +59,6 @@ public class MockHttpInterceptor implements Interceptor {
         return chain.proceed(chain.request());
     }
 
-    private static String readJsonFromResources(String fileName) {
-        try {
-            return InputStreamUtils.toString(ClassLoader.getSystemClassLoader().getResourceAsStream(fileName));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
+
 
 }
