@@ -1,7 +1,4 @@
-package com.example.baking.testutils;
-
-import com.example.baking.utils.FakeData;
-import com.example.baking.utils.InputStreamUtils;
+package com.example.baking.utils;
 
 import java.io.IOException;
 import java.util.Map;

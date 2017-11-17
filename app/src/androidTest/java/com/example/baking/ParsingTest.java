@@ -6,7 +6,7 @@ import com.example.baking.model.Measure;
 import com.example.baking.model.Recipe;
 import com.example.baking.model.RecipeWithSubobjects;
 import com.example.baking.model.api.ApiFactory;
-import com.example.baking.testutils.MockHttpInterceptor;
+import com.example.baking.utils.MockHttpInterceptor;
 
 import org.junit.Test;
 
