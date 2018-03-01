@@ -3,8 +3,6 @@ package com.example.baking.model;
 import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Relation;
 
-import com.google.gson.annotations.SerializedName;
-
 import java.util.List;
 
 public class RecipeWithSubobjects {

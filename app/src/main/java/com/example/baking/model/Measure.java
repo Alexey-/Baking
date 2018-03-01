@@ -2,26 +2,26 @@ package com.example.baking.model;
 
 import android.arch.persistence.room.Ignore;
 import android.content.Context;
-import android.support.annotation.StringRes;
+import android.support.annotation.PluralsRes;
 
 import com.example.baking.R;
 
 public class Measure {
 
     public enum Unit {
-        CUP(R.string.measure_unit_cup),
-        TBLSP(R.string.measure_unit_table_spoon),
-        TSP(R.string.measure_unit_tea_spoon),
-        K(R.string.measure_unit_kg),
-        G(R.string.measure_unit_gram),
-        OZ(R.string.measure_unit_oz),
-        UNIT(R.string.measure_unit_unit),
+        CUP(R.plurals.measure_unit_cup),
+        TBLSP(R.plurals.measure_unit_table_spoon),
+        TSP(R.plurals.measure_unit_tea_spoon),
+        K(R.plurals.measure_unit_kg),
+        G(R.plurals.measure_unit_gram),
+        OZ(R.plurals.measure_unit_oz),
+        UNIT(R.plurals.measure_unit_unit),
         UNKNOWN(0);
 
-        @StringRes
+        @PluralsRes
         private int mTextResourceId;
 
-        private Unit(@StringRes int text) {
+        private Unit(@PluralsRes int text) {
             this.mTextResourceId = text;
         }
 
@@ -48,9 +48,14 @@ public class Measure {
         return mUnit;
     }
 
-    public String getText(Context context) {
+    public String getText(Context context, double quantity) {
         if (mUnit != Unit.UNKNOWN) {
-            return context.getString(mUnit.mTextResourceId);
+            int roundedQuantity = (int) Math.round(quantity);
+            if (quantity != roundedQuantity) {
+                return context.getResources().getQuantityString(mUnit.mTextResourceId, 5);
+            } else {
+                return context.getResources().getQuantityString(mUnit.mTextResourceId, roundedQuantity);
+            }
         } else {
             return mRawValue;
         }

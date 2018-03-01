@@ -16,7 +16,9 @@
             android:layout_height="wrap_content"
             card_view:cardBackgroundColor="@android:color/white"
             card_view:cardElevation="4dp"
-            card_view:cardUseCompatPadding="true">
+            card_view:cardUseCompatPadding="true"
+            android:clickable="true"
+            android:foreground="@drawable/default_touch_selector">
 
             <LinearLayout
                 android:layout_width="match_parent"

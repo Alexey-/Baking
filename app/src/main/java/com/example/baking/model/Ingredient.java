@@ -3,11 +3,15 @@ package com.example.baking.model;
 import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
+import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 
 import com.google.gson.annotations.SerializedName;
 
-@Entity(foreignKeys = @ForeignKey(entity = Recipe.class, parentColumns = "mId", childColumns = "mRecipeId", onDelete = ForeignKey.CASCADE))
+@Entity(
+        foreignKeys = @ForeignKey(entity = Recipe.class, parentColumns = "mId", childColumns = "mRecipeId", onDelete = ForeignKey.CASCADE),
+        indices = {@Index("mRecipeId")}
+)
 public class Ingredient {
 
     @PrimaryKey(autoGenerate = true)

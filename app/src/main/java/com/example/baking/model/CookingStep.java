@@ -2,11 +2,15 @@ package com.example.baking.model;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
+import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 
 import com.google.gson.annotations.SerializedName;
 
-@Entity(foreignKeys = @ForeignKey(entity = Recipe.class, parentColumns = "mId", childColumns = "mRecipeId", onDelete = ForeignKey.CASCADE))
+@Entity(
+        foreignKeys = @ForeignKey(entity = Recipe.class, parentColumns = "mId", childColumns = "mRecipeId", onDelete = ForeignKey.CASCADE),
+        indices = {@Index("mRecipeId")}
+)
 public class CookingStep {
 
     @PrimaryKey(autoGenerate = true)
@@ -18,9 +22,9 @@ public class CookingStep {
     private String mShortDescription;
     @SerializedName("description")
     private String mDescription;
-    @SerializedName("videoUrl")
+    @SerializedName("videoURL")
     private String mVideoUrl;
-    @SerializedName("thumbnailUrl")
+    @SerializedName("thumbnailURL")
     private String mThumbnailUrl;
 
     public CookingStep() {

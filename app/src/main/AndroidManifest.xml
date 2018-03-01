@@ -10,7 +10,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="false"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:name=".BakingApplication">
 
         <activity android:name=".ui.recipes.list.RecipiesListActivity"
             android:label="@string/activity_name_recipes_list">
@@ -19,6 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.recipes.details.RecipeDetailsActivity"></activity>
 
     </application>
 </manifest>

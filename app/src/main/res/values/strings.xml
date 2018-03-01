@@ -5,11 +5,38 @@
     <string name="activity_name_recipes_list">Recipes</string>
 
     <!-- Measurment units -->
-    <string name="measure_unit_cup">cup</string>
-    <string name="measure_unit_table_spoon">table spoon</string>
-    <string name="measure_unit_tea_spoon">tea spoon</string>
-    <string name="measure_unit_kg">kilogram</string>
-    <string name="measure_unit_gram">gram</string>
-    <string name="measure_unit_oz">oz</string>
-    <string name="measure_unit_unit"></string>
+    <plurals name="measure_unit_cup">
+        <item quantity="one">cup</item>
+        <item quantity="other">cups</item>
+    </plurals>
+    <plurals name="measure_unit_table_spoon">
+        <item quantity="one">table spoon</item>
+        <item quantity="other">table spoons</item>
+    </plurals>
+    <plurals name="measure_unit_tea_spoon">
+        <item quantity="one">tea spoon</item>
+        <item quantity="other">tea spoons</item>
+    </plurals>
+    <plurals name="measure_unit_kg">
+        <item quantity="one">kilogram</item>
+        <item quantity="other">kilograms</item>
+    </plurals>
+    <plurals name="measure_unit_gram">
+        <item quantity="one">gram</item>
+        <item quantity="other">grams</item>
+    </plurals>
+    <plurals name="measure_unit_oz">
+        <item quantity="one">oz</item>
+        <item quantity="other">oz</item>
+    </plurals>
+    <plurals name="measure_unit_unit">
+        <item quantity="one"></item>
+        <item quantity="other"></item>
+    </plurals>
+
+    <!-- Recipe overview -->
+    <string name="recipe_description_servings">Number of servings:</string>
+    <string name="recipe_description_ingredients">Ingredients:</string>
+    <string name="recipe_description_ingredient_format">%1$s %2$s of %3$s</string>
+
 </resources>

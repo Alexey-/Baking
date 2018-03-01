@@ -1,26 +1,34 @@
 package com.example.baking;
 
+import android.support.test.runner.AndroidJUnit4;
+
 import com.example.baking.model.CookingStep;
 import com.example.baking.model.Ingredient;
 import com.example.baking.model.Measure;
 import com.example.baking.model.Recipe;
 import com.example.baking.model.RecipeWithSubobjects;
 import com.example.baking.model.api.ApiFactory;
-import com.example.baking.utils.MockHttpInterceptor;
+import com.example.baking.utils.TestResponseRule;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
+@RunWith(AndroidJUnit4.class)
 public class ParsingTest {
+
+    @Rule
+    public TestResponseRule mResponseRule = new TestResponseRule(
+            "/topher/2017/May/59121517_baking/baking.json", "fake_response.json"
+    );
 
     @Test
     public void testRecipesList() throws Exception {
-        MockHttpInterceptor interceptor = new MockHttpInterceptor();
-        interceptor.addJsonResponse("/topher/2017/May/59121517_baking/baking.json", "fake_response.json");
-        List<RecipeWithSubobjects> recipes = ApiFactory.getApi(interceptor).getRecipes().blockingGet();
+        List<RecipeWithSubobjects> recipes = ApiFactory.getDefault().getRecipes().blockingGet();
         assertEquals(4, recipes.size());
 
         Recipe nutellaPieRecipe = recipes.get(0).getRecipe();

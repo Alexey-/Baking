@@ -4,6 +4,7 @@ import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
+import android.arch.persistence.room.Transaction;
 
 import com.example.baking.model.CookingStep;
 import com.example.baking.model.Ingredient;
@@ -26,6 +27,10 @@ public interface RecipeDao {
 
     @Query("DELETE FROM Recipe")
     void deleteRecipes();
+
+    @Transaction
+    @Query("SELECT * FROM Recipe WHERE mId = :recipeId")
+    Flowable<RecipeWithSubobjects> getRecipeWithSubobjects(int recipeId);
 
     default void rewriteRecipies(List<RecipeWithSubobjects> newRecipiesWithSubobjects) {
         BakingDatabase db = BakingDatabase.getDefault();

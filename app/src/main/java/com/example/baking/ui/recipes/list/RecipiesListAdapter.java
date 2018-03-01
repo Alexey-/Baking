@@ -1,5 +1,7 @@
 package com.example.baking.ui.recipes.list;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +11,7 @@ import com.bumptech.glide.Glide;
 import com.example.baking.R;
 import com.example.baking.databinding.RecipeViewHolderBinding;
 import com.example.baking.model.Recipe;
-import com.example.baking.utils.Log;
+import com.example.baking.ui.recipes.details.RecipeDetailsActivity;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -70,7 +72,10 @@ public class RecipiesListAdapter extends RecyclerView.Adapter<RecipiesListAdapte
             mBinding.title.setText(mRecipe.getName());
 
             mBinding.card.setOnClickListener((view) -> {
-                Log.d("Recipe " + mRecipe.getId() + " clicked.");
+                Context context = view.getContext();
+                Intent intent = new Intent(context, RecipeDetailsActivity.class);
+                intent.putExtra(RecipeDetailsActivity.INTENT_PARAM_RECIPE_ID, mRecipe.getId());
+                context.startActivity(intent);
             });
         }
 
